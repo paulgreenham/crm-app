@@ -25,8 +25,7 @@
 }
 
 .clients-results {
-    display: grid;
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
 .client {
