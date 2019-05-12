@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import '../../style/editpopup.css'
 
@@ -30,6 +31,17 @@ class EditPopUp extends Component {
         })
     }
 
+    updateRecord = async () => {
+        const fullName = this.state.name.concat(" ", this.state.surname)
+        const newRecord = {
+            _id: this.props.client._id,
+            name: fullName,
+            country: this.state.country
+        }
+        await axios.put('http://localhost:3723/clientupdate', newRecord)
+        this.closePopUp()
+    }
+
     render(){
         return (<div className="edit-popup">
             <div className="popup-details">
@@ -46,7 +58,7 @@ class EditPopUp extends Component {
                     <span>Country:</span>
                     <input type="text" name="country" value={this.state.country} onChange={this.changeInput}/>
                 </div>
-                <button className="update-button">Update</button>
+                <button className="update-button" onClick={this.updateRecord}>Update</button>
             </div>
         </div>)
     }
