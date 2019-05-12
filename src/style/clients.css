@@ -1,0 +1,48 @@
+.clients-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 8fr;
+    padding: 2vw;
+    overflow: scroll;
+}
+
+.main-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
+    padding-bottom: 1vw;
+}
+
+.clients-header {
+    background-color: #F7CE3E;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-content: center;
+    font-weight: bold;
+    box-shadow: 2px 2px 1px slategrey;
+    border-radius: 2px;
+    height: 5vh;
+    padding: 0.5vw;
+}
+
+.clients-results {
+    display: grid;
+    margin-top: 1vh;
+}
+
+.client {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-content: center;
+    height: 5vh;
+    margin-left: 0.5vw;
+    margin-bottom: 2vh;
+    border-bottom: 2px solid lightgrey;
+}
+
+.search-bar {
+    height: 3.2vh;
+}
+
+.search-filter {
+    height: 4vh;
+}

@@ -1,0 +1,14 @@
+.pagination {
+    display: grid;
+    justify-self: right;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+}
+
+.pagination > span:hover {
+    cursor: pointer;
+}
+
+.page-up, .page-down{
+    font-weight: 1000;
+}

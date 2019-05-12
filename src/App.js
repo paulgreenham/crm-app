@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+import Home from './components/Home'
+import Clients from './components/Clients/Clients'
+import Actions from './components/Actions'
+import Analytics from './components/Analytics'
+
 import './App.css'
-import Home from './components/Home';
-import Clients from './components/Clients';
-import Actions from './components/Actions';
-import Analytics from './components/Analytics';
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      currentPage: "Home"
+      currentPage: "Home",
     }
   }
 
@@ -20,6 +21,7 @@ class App extends Component {
 
   setNavCurrent = page => this.state.currentPage === page ? {backgroundColor: "grey"} : null
 
+  
   render() {
   return (
     <div className="App">
