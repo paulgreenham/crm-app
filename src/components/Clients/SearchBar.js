@@ -10,7 +10,7 @@ class SearchBar extends Component {
     }
 
     updateSearch = event => {
-        let key = "search" + event.target.name
+        let key = "search" + event.target.name.split("-")[0]    //if input name is "Object-[num]" retain only "Object"
         this.setState({
             [key]: event.target.value
         }, function () {
@@ -30,10 +30,21 @@ class SearchBar extends Component {
         )
     }
 
+    renderSoldSearch = () => {return (
+        <select name="Object-1" className="search-bar" value={this.state.searchObject} onChange={this.updateSearch}>
+            <option value="">Still pending</option>
+            <option value={true}>Success</option>
+        </select>
+    )}
+
+    renderOtherSearch = () => {return (
+        <input name="Object-2" className="search-bar" type="text" placeholder="Search" 
+            value={this.state.searchObject} onChange={this.updateSearch}/>
+    )}
+
     render(){
         return (<div>
-            <input name="Object" className="search-bar" type="text" placeholder="Search" 
-                value={this.state.searchObject} onChange={this.updateSearch}/>
+            {this.state.searchCategory === "sold" ? this.renderSoldSearch() : this.renderOtherSearch()}
             {this.renderFilter()}
         </div>)
     }

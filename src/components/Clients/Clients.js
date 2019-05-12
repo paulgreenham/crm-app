@@ -32,9 +32,24 @@ class Clients extends Component {
         })
     }
 
-    getSearchedClients = () => this.state.clients
-        .filter(c => c[this.state.searchCategory].toLowerCase()
-        .includes(this.state.searchObject.toLowerCase()))
+    filterEmailType = client => client.emailType ? 
+        client.emailType.toLowerCase().includes(this.state.searchObject.toLowerCase()) :
+        this.state.searchObject === "-"
+
+    filterClient = client => {
+        if (this.state.searchCategory === "emailType") {
+            return this.filterEmailType(client)
+        }
+        else if (this.state.searchCategory === "sold") {
+            return this.state.searchObject ? client.sold : !client.sold
+        }
+        else {
+            return client[this.state.searchCategory].toLowerCase()
+            .includes(this.state.searchObject.toLowerCase())
+        }
+    }
+
+    getSearchedClients = () => this.state.clients.filter(c => this.filterClient(c))
 
     resetIndex = index => this.setState({ startIndex: index})
 

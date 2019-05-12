@@ -31,9 +31,9 @@ class Pagination extends Component {
     render(){
         return (<div className="pagination">
         <span className="page-start" onClick={this.resetPagination}>Start </span>
-        <span className="page-down" onClick={this.decreasePagination}>{"< "}</span>
+        <span className="page-down" onClick={this.decreasePagination}><i className="fas fa-chevron-left"></i></span>
         {this.props.start + 1} - {this.getEndItem(this.props.start)}
-        <span className="page-up" onClick={this.increasePagination}>{" >"}</span>
+        <span className="page-up" onClick={this.increasePagination}><i className="fas fa-chevron-right"></i></span>
         <span className="page-end" onClick={this.endPagination}> End</span>
     </div>)
     }

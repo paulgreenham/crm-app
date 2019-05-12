@@ -17,7 +17,7 @@ class Client extends Component {
             <span>{client.country}</span>
             <span>{this.getUSDate(client.firstContact)}</span>
             <span>{client.emailType ? client.emailType : "-"}</span>
-            <span>{client.sold ? "[Check]" : "-" }</span>
+            <span>{client.sold ? <i className="fas fa-check"></i> : "-" }</span>
             <span>{client.owner}</span>
         </div>)
     }
