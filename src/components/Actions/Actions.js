@@ -23,6 +23,9 @@ class Actions extends Component {
     }
 
     getCurrentClient = async id => {
+        if (id === null) {
+            return this.setState({ currentClient: {} })
+        }
         let dbClient = await axios.get(`http://localhost:3723/client/${id}`)
         this.setState({
             currentClient: dbClient.data
@@ -56,7 +59,7 @@ class Actions extends Component {
             </div>
             <div className="add-client">
                 <h1>ADD CLIENT</h1>
-                <AddClient />
+                <AddClient updateClients={this.updateClients} />
             </div>
         </div>)
     }

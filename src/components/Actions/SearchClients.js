@@ -36,6 +36,9 @@ class SearchClients extends Component {
             searchName: searchInput,
             searchHidden: searchInput === "" ? true : false
         })
+        if (searchInput === "") {
+            this.props.getCurrentClient(null)
+        }
     }
 
     render(){

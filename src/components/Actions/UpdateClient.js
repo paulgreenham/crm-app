@@ -24,22 +24,27 @@ class UpdateClient extends Component {
         }
         let changeObject = {
             _id: this.props.client._id,
-            [key]: this.state[key]
+            [key]: key === "sold" ? true : this.state[key]
         }
         let record = await axios.put(`http://localhost:3723/clientupdate/${key}`, changeObject)
         this.props.updateClient(key, record.data[key])
     }
 
-    renderMenu = type => {
+    sortListByType = type => {
         let list = this.props[type === "owner" ? "owners" : "emails"].sort()
         if (!list[list.length - 1]) { list.splice(list.length - 1) }        // remove "null" result if the list shows emails
-        return (<select className={`${type}-menu`} name={type} value={this.state[type]} onChange={this.handleInput}>
-            <option value="">{type === "owner" ? "Owners" : "Email Type"}</option>
-            {list.map(l => <option value={l} key={l}>{l + (this.props.client[type] === l ? " (current)" : "")}</option>)}
-        </select>)
+        return list
     }
 
-
+    renderMenu = type => {
+        let list = this.sortListByType(type)
+        return (
+            <select className={`${type}-menu`} name={type} value={this.state[type]} onChange={this.handleInput}>
+                <option value="">{type === "owner" ? "Owner" : "Email Type"}</option>
+                {list.map(l => <option value={l} key={l}>{l + (this.props.client[type] === l ? " (current)" : "")}</option>)}
+            </select>
+        )
+    }
 
     render(){
         return (<div className="update">
@@ -47,16 +52,20 @@ class UpdateClient extends Component {
             <div className="transfer-owner">
                 <span>Transfer Ownership to</span>
                 {this.renderMenu("owner")}
-                <button name="owner" onClick={this.updateRecord}>Transfer</button>
+                <button name="owner" onClick={this.updateRecord}>TRANSFER</button>
             </div>
 
             <div className="send-email">
                 <span>Send Email:</span>
                 {this.renderMenu("emailType")}
-                <button name="emailType" onClick={this.updateRecord}>Send</button>
+                <button name="emailType" onClick={this.updateRecord}>SEND</button>
             </div>
 
-            <div className="sale">Declare Sale!</div>
+            <div className="sale">
+                <span>Declare Sale!</span>
+                {this.props.client.sold ? <span className="sale-made">Sale Made</span> : <span className="filler"></span>}
+                <button name="sold" onClick={this.updateRecord}>DECLARE</button>
+            </div>
 
         </div>)
     }

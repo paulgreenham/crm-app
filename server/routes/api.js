@@ -18,6 +18,21 @@ router.get('/client/:id', async function (req, res) {
     res.send(client)
 })
 
+router.post('/clientupdate', async function (req, res) {
+    let data = req.body
+    let newRecord = new Client({
+        name: data.name,
+        email: data.email,
+        firstContact: new Date(data.firstContact),
+        emailType: null,
+        sold: false,
+        owner: data.owner,
+        country: data.country
+    })
+    await newRecord.save()
+    res.end()
+})
+
 router.put('/clientupdate', async function (req, res) {
     let data = req.body
     let record = await Client.findOneAndUpdate({_id: data._id}, { $set: { name: data.name,  country: data.country }}, {new: true})

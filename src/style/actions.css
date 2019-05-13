@@ -3,6 +3,10 @@ h1 {
     font-weight: bold;
 }
 
+.actions-container {
+    padding: 1vw;
+}
+
 .update-client {
     position: relative;
 }
@@ -45,5 +49,63 @@ h1 {
 
 .update {
     margin-top: 2vh;
-    width: 20vw;
+    width: 40vw;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 1vw;
+}
+
+.transfer-owner, .send-email, .sale {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1vw;
+    align-items: center;
+}
+
+.owner-menu, .emailType-menu, .filler {
+    width: 200px;
+    height: 24px;
+    margin: 1vw;
+    background-color: #ecf0f1;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.sale-made {
+    width: 200px;
+    height: 24px;
+    margin: 1vw;
+    background-color: #F7CE3E;
+    color: #0a1612;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.update > div > button {
+    color: #F7CE3E;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    background-color: #ecf0f1;
+    cursor: pointer;
+    text-align: left;
+}
+
+
+@media only screen and (max-width: 720px) {
+    .update {
+        width: 100vw;
+    }
+    .client-search {
+        width: 40vw;
+    }
+    .owner-menu, .emailType-menu, .sale-made {
+        width: 30vw;
+    }
+    .update > div > button {
+        width: 20vw;
+    }
 }
