@@ -24,5 +24,12 @@ router.put('/clientupdate', async function (req, res) {
     res.send(record)
 })
 
+router.put('/clientupdate/:key', async function (req, res) {
+    let data = req.body
+    let key = req.params.key
+    let record = await Client.findOneAndUpdate({_id: data._id}, { $set: { [key]: data[key]}}, {new: true})
+    res.send(record)
+})
+
 
 module.exports = router

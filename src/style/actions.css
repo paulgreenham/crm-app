@@ -10,7 +10,7 @@ h1 {
 .client-search {
     background-color: #ecf0f1;
     position: absolute;
-    left: 5vw;
+    left: 75px;
     width: 250px;
     height: 15px;
     border: none;
@@ -23,7 +23,7 @@ h1 {
 .client-names {
     background-color: white;
     position: absolute;
-    left: 5vw;
+    left: 75px;
     width: 250px;
     max-height: 80vh;
     border: 1px solid lightgrey;
@@ -45,4 +45,5 @@ h1 {
 
 .update {
     margin-top: 2vh;
+    width: 20vw;
 }

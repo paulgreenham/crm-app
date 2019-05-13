@@ -32,7 +32,6 @@ class SearchClients extends Component {
 
     chooseClient = event => {
         let searchInput = event.target.value
-        console.log(searchInput)
         this.setState({
             searchName: searchInput,
             searchHidden: searchInput === "" ? true : false
@@ -41,7 +40,8 @@ class SearchClients extends Component {
 
     render(){
         return (<div>
-            Client: <input className="client-search" type="text" value={this.state.searchName} onChange={this.chooseClient} />
+            Client: <input className="client-search" type="text" placeholder="Enter client name"
+                value={this.state.searchName} onChange={this.chooseClient} />
             {this.populateClientSearch()}
         </div>)
     }
