@@ -2,3 +2,42 @@ h1 {
     font-size: 16px;
     font-weight: bold;
 }
+
+.update-client {
+    position: relative;
+}
+
+.client-search {
+    background-color: #ecf0f1;
+    position: absolute;
+    left: 5vw;
+    width: 250px;
+    height: 15px;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+}
+
+.client-names {
+    background-color: white;
+    position: absolute;
+    left: 5vw;
+    width: 250px;
+    max-height: 80vh;
+    border: 1px solid lightgrey;
+    font-family: inherit;
+    font-size: inherit;
+    overflow: scroll;
+}
+
+.client-name {
+    margin: 5px;
+}
+
+.client-name:hover {
+    background-color: #0a1612;
+    color: white;
+    cursor: pointer;
+}

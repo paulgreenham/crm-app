@@ -16,16 +16,16 @@ class Actions extends Component {
     }
 
     updateClients = async () => {
-        let dbclients = await axios.get('http://localhost:3723/clientdata')
+        let dbClients = await axios.get('http://localhost:3723/clientdata')
         this.setState({
-            clients: dbclients.data
+            clients: dbClients.data
         })
     }
 
     getCurrentClient = async id => {
-        let client = await axios.get(`http://localhost:3723/client/${id}`)
+        let dbClient = await axios.get(`http://localhost:3723/client/${id}`)
         this.setState({
-            currentClient: client
+            currentClient: dbClient.data
         })
     }
 

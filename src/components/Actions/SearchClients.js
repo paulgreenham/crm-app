@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import ClientName from './ClientName'
 
 class SearchClients extends Component {
     constructor() {
         super()
         this.state = {
-            searchName: ""
+            searchName: "",
+            searchHidden: false
         }
     }
 
@@ -12,23 +14,30 @@ class SearchClients extends Component {
 
     getSearchedClients = () => this.props.clients.filter(c => this.filterClient(c))
 
+    setClient = (id, name) => {
+        this.props.getCurrentClient(id)
+        this.setState({
+            searchName: name,
+            searchHidden: true
+        })
+    }
+
     populateClientSearch = () => {
-        return (<datalist id="clientNames">
-            {this.getSearchedClients().map(c => <option value={c.name} key={c._id}/>)}
-        </datalist>)
+        return (<div className="client-names" style={{visibility: this.state.searchHidden ? "hidden" : "visible"}}>
+            {this.getSearchedClients().map(c => <ClientName client={c} key={c._id} setClient={this.setClient}/>)}
+        </div>)
     }
 
     chooseClient = event => {
-        this.setState({ searchName: event.target.value })
-    }
-
-    getCurrentClient = () => {
-        this.props.getCurrentClient(this.state.searchName)
+        this.setState({
+            searchName: event.target.value,
+            searchHidden: false
+        })
     }
 
     render(){
         return (<div>
-            Client: <input list="clientNames" value={this.state.searchName} onChange={this.chooseClient} />
+            Client: <input className="client-search" type="text" value={this.state.searchName} onChange={this.chooseClient} />
             {this.populateClientSearch()}
         </div>)
     }
