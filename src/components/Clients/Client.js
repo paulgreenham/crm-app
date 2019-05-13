@@ -5,7 +5,8 @@ class Client extends Component {
     constructor() {
         super()
         this.state = {
-            revealEdit: false
+            revealEdit: false,
+            client: null
         }
     }
 
@@ -22,14 +23,18 @@ class Client extends Component {
         })
     }
 
+    getRecord = async () => {}
+
     closePopUp = () => {
         this.setState({
-            revealEdit: false
+            revealEdit: false,
         })
     }
 
+    updateRecord = record => this.setState({ client: record })
+
     render(){
-        const client = this.props.client
+        const client = this.state.client || this.props.client
         return (<div>
             <div className="client" onClick={this.showPopUp}>
                 <span>{this.splitName(client.name)[0]}</span>
@@ -40,7 +45,7 @@ class Client extends Component {
                 <span>{client.sold ? <i className="fas fa-check"></i> : "-" }</span>
                 <span>{client.owner}</span>
             </div>
-            {this.state.revealEdit ? <EditPopUp client={this.props.client} closePopUp={this.closePopUp}/> : null}
+            {this.state.revealEdit ? <EditPopUp client={client} closePopUp={this.closePopUp} updateRecord={this.updateRecord}/> : null}
         </div>)
     }
 }

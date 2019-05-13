@@ -24,6 +24,8 @@ class EditPopUp extends Component {
 
     closePopUp = () => this.props.closePopUp()
 
+
+
     changeInput = event => {
         let key = event.target.name
         this.setState({
@@ -38,7 +40,8 @@ class EditPopUp extends Component {
             name: fullName,
             country: this.state.country
         }
-        await axios.put('http://localhost:3723/clientupdate', newRecord)
+        const record = await axios.put('http://localhost:3723/clientupdate', newRecord)
+        this.props.updateRecord(record.data)
         this.closePopUp()
     }
 

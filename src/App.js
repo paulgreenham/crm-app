@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Clients from './components/Clients/Clients'
-import Actions from './components/Actions'
+import Actions from './components/Actions/Actions'
 import Analytics from './components/Analytics'
 
 import './App.css'

@@ -31,7 +31,7 @@ class SearchBar extends Component {
     }
 
     renderSoldSearch = () => {return (
-        <select name="Object-1" className="search-bar" value={this.state.searchObject} onChange={this.updateSearch}>
+        <select name="Object-1" className="search-menu" value={this.state.searchObject} onChange={this.updateSearch}>
             <option value="">Still pending</option>
             <option value={true}>Success</option>
         </select>
