@@ -34,10 +34,15 @@ h1 {
 
 .client-name {
     margin: 5px;
+    background-color: white;
 }
 
 .client-name:hover {
     background-color: #0a1612;
     color: white;
     cursor: pointer;
+}
+
+.update {
+    margin-top: 2vh;
 }

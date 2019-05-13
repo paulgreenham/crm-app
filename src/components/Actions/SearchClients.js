@@ -6,7 +6,7 @@ class SearchClients extends Component {
         super()
         this.state = {
             searchName: "",
-            searchHidden: false
+            searchHidden: true
         }
     }
 
@@ -22,6 +22,8 @@ class SearchClients extends Component {
         })
     }
 
+    hideSearch = () => { if (this.state.searchName) { return false } }
+
     populateClientSearch = () => {
         return (<div className="client-names" style={{visibility: this.state.searchHidden ? "hidden" : "visible"}}>
             {this.getSearchedClients().map(c => <ClientName client={c} key={c._id} setClient={this.setClient}/>)}
@@ -29,9 +31,11 @@ class SearchClients extends Component {
     }
 
     chooseClient = event => {
+        let searchInput = event.target.value
+        console.log(searchInput)
         this.setState({
-            searchName: event.target.value,
-            searchHidden: false
+            searchName: searchInput,
+            searchHidden: searchInput === "" ? true : false
         })
     }
 

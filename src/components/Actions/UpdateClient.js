@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class UpdateClient extends Component {
     render(){
-        return (<div>
+        return (<div className="update">
             Update {this.props.client.name}
         </div>)
     }
