@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class UpdateClient extends Component {
     render(){
         return (<div>
-            Update Client
+            Update {this.props.client.name}
         </div>)
     }
 }

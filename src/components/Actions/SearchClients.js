@@ -14,7 +14,7 @@ class SearchClients extends Component {
 
     populateClientSearch = () => {
         return (<datalist id="clientNames">
-            {this.getSearchedClients().map(c => <option value={c.name} key={c._id} />)}
+            {this.getSearchedClients().map(c => <option value={c.name} key={c._id}/>)}
         </datalist>)
     }
 
@@ -22,14 +22,16 @@ class SearchClients extends Component {
         this.setState({ searchName: event.target.value })
     }
 
+    getCurrentClient = () => {
+        this.props.getCurrentClient(this.state.searchName)
+    }
+
     render(){
         return (<div>
-            Client: <input list="clientNames" value={this.state.searchName} onInput={this.chooseClient} />
+            Client: <input list="clientNames" value={this.state.searchName} onChange={this.chooseClient} />
             {this.populateClientSearch()}
         </div>)
     }
 }
 
 export default SearchClients
-
-// type="text" value={this.state.searchName} onChange={this.chooseClient}

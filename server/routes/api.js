@@ -6,7 +6,16 @@ const Client = require('../models/Client')
 
 router.get('/clientdata', async function (req, res) {
     let clients = await Client.find({})
+    if (req.query.limit === "names") {
+        clients = clients.map(c => {return {_id: c._id, name: c.name}})
+    }
     res.send(clients)
+})
+
+router.get('/client/:id', async function (req, res) {
+    let id = req.params.id
+    let client = await Client.findById(id)
+    res.send(client)
 })
 
 router.put('/clientupdate', async function (req, res) {
