@@ -56,7 +56,7 @@
 
 .charts {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 4fr 11fr;
     grid-template-rows: repeat(2, 1fr);
 }
 
