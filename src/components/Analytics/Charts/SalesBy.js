@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-class Chart extends Component {
+class SalesBy extends Component {
     render(){
         return (<div>
-            Chart
+            SalesBy (variable bar graph)
         </div>)
     }
 }
 
-export default Chart
+export default SalesBy

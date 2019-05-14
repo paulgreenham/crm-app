@@ -1,3 +1,7 @@
+.analytics-container {
+    display: grid;
+}
+
 .badges-container {
     margin: 2vw;
     display: grid;
@@ -48,4 +52,14 @@
 
 .badge-datum {
     font-size: 3vw;
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.top-employees {
+    margin: 1vw;
 }
