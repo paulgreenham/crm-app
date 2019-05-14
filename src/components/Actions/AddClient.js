@@ -32,6 +32,7 @@ class AddClient extends Component {
             firstContact: new Date(this.state.firstContact),
             owner: this.state.owner
         }
+        console.log(newRecord)
         await axios.post('http://localhost:3723/clientupdate', newRecord)
         this.props.updateClients()
     }

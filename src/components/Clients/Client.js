@@ -14,7 +14,7 @@ class Client extends Component {
 
     getUSDate = dateStamp => {
         const date = new Date(dateStamp)
-        return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear()
+        return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear()
     }
 
     showPopUp = () => {

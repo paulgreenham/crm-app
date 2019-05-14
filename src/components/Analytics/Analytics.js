@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Charts from './Charts'
+import Badges from './Badges'
+
+import '../../style/analytics.css'
 
 class Analytics extends Component {
     constructor() {
@@ -22,8 +26,9 @@ class Analytics extends Component {
     }
 
     render(){
-        return (<div>
-            Analytics Page
+        return (<div className="analytics-container">
+            <Badges clients={this.state.clients} />
+            <Charts />
         </div>)
     }
 }

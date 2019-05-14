@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Clients from './components/Clients/Clients'
 import Actions from './components/Actions/Actions'
-import Analytics from './components/Analytics'
+import Analytics from './components/Analytics/Analytics'
 
 import './App.css'
 

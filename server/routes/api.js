@@ -29,6 +29,7 @@ router.post('/clientupdate', async function (req, res) {
         owner: data.owner,
         country: data.country
     })
+    console.log(newRecord)
     await newRecord.save()
     res.end()
 })
