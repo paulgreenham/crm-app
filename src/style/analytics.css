@@ -1,11 +1,14 @@
 .analytics-container {
     display: grid;
+    grid-template-rows: 1fr 5fr;
+    height: 90vh;
 }
 
 .badges-container {
-    margin: 2vw;
+    margin: 1vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    height: 15vh;
 }
 
 .new-clients {
@@ -27,19 +30,18 @@
 .badge {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding-right: 3vw;
+    padding-right: 7vw;
 }
 
 .icon {
-    /* background-color: inherit; */
     border-radius: 50%;
-    height: 8vw;
-    width: 8vw;
+    height: 6vw;
+    width: 6vw;
     display: grid;
     justify-content: center;
     align-content: center;
     color: white;
-    font-size: 5.5vw;
+    font-size: 4.5vw;
     box-shadow: 2px 2px 1px slategrey;
 }
 
@@ -56,10 +58,30 @@
 
 .charts {
     display: grid;
-    grid-template-columns: 4fr 11fr;
     grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+    "t b b b b"
+    "s s s c c";
+    height: 60vh;
 }
 
-.top-employees {
-    margin: 1vw;
+#top-employees {
+    grid-area: t;
+}
+
+#sales-by {
+    grid-area: b;
+}
+
+#sales-since {
+    grid-area: s;
+}
+
+#client-acquisition {
+    grid-area: c;
+}
+
+.chart-header {
+    font-weight: bold;
+    margin-left: 1vw;
 }

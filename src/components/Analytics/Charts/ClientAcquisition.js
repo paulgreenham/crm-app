@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 class ClientAcquisition extends Component {
     render(){
-        return (<div>
-            Client Acquisition (Pie Chart)
+        return (<div id="client-acquisition">
+            <div className="chart-header">Client Acquisition</div>
         </div>)
     }
 }

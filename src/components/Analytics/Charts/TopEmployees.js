@@ -30,9 +30,8 @@ class TopEmployees extends Component {
 
     renderChart = data => {
         return (
-            <ResponsiveContainer width='100%'>
-                <BarChart width={730} height={250} layout="vertical" data={data}
-                    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                <BarChart width={400} height={200} layout="vertical" data={data}
+                    margin={{ top: 20, right: 20, bottom: 20, left: 40 }}>
                     <XAxis dataKey="sales" type="number">
                         <Label value="Sales" offset={0} position="bottom" />
                     </XAxis>
@@ -40,12 +39,12 @@ class TopEmployees extends Component {
                     <Bar dataKey="sales" fill="#003F5C" legendType="none" maxBarSize={20}
                         isAnimationActive={true}/>
                 </BarChart>
-            </ResponsiveContainer>
         )
     }
 
     render(){
-        return (<div className="top-employees">
+        return (<div id="top-employees">
+            <div className="chart-header">Top Employees</div>
             {this.renderChart(this.getTopEmployeeData())}
         </div>)
     }

@@ -73,10 +73,9 @@ class SalesBy extends Component {
     }
 
     renderChart = data => {
-        console.log(data)
         return (
             <ResponsiveContainer width='100%'>
-                <BarChart width={400} height={250} layout="horizontal" data={data}
+                <BarChart width={1200} height={200} layout="horizontal" data={data}
                     margin={{ top: 20, right: 20, bottom: 40, left: 20 }}>
                     <XAxis dataKey="selection" type="category"/>
                     <YAxis dataKey="sales" type="number"/>
@@ -88,8 +87,8 @@ class SalesBy extends Component {
     }
 
     render(){
-        return (<div className="sales-by">
-            <div className="sales-by-menu">Sales by {this.renderMenu()}</div>
+        return (<div id="sales-by">
+            <div className="sales-by-menu"><span className="chart-header">Sales by </span>{this.renderMenu()}</div>
             {this.renderChart(this.getData(this.state.currentSelection))}
         </div>)
     }
