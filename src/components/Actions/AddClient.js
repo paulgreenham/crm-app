@@ -9,15 +9,17 @@ class AddClient extends Component {
             surname: "",
             email: "",
             country: "",
-            firstContact: new Date(),
+            firstContact: this.getReactDate(),
             owner: ""
         }
     }
 
+    getReactDate = (date = new Date()) => date.toISOString().slice(0, 10)
+
     changeInput = event => {
         let key = event.target.name
         this.setState({
-            [key]: key === "date" ? new Date(event.target.value) : event.target.value
+            [key]: event.target.value
         })
     }
 
@@ -37,34 +39,34 @@ class AddClient extends Component {
     render(){
         return (<div className="add">
 
-            <div className="add-input" name="name" value={this.state.name} onChange={this.changeInput}>
+            <div className="add-input">
                 <span>First Name:</span>
-                <input type="text"/>
+                <input type="text" name="name" value={this.state.name} onChange={this.changeInput}/>
             </div>
 
-            <div className="add-input" name="surname" value={this.state.surname} onChange={this.changeInput}>
+            <div className="add-input">
                 <span>Surname:</span>
-                <input type="text"/>
+                <input type="text" name="surname" value={this.state.surname} onChange={this.changeInput}/>
             </div>
 
-            <div className="add-input" name="email" value={this.state.email} onChange={this.changeInput}>
+            <div className="add-input">
                 <span>Email:</span>
-                <input type="text"/>
+                <input type="text" name="email" value={this.state.email} onChange={this.changeInput}/>
             </div>
 
-            <div className="add-input" name="country" value={this.state.country} onChange={this.changeInput}>
+            <div className="add-input">
                 <span>Country:</span>
-                <input type="text"/>
+                <input type="text" name="country" value={this.state.country} onChange={this.changeInput}/>
             </div>
 
-            <div className="add-input" name="firstContact" value={this.state.firstContact} onChange={this.changeInput}>
+            <div className="add-input">
                 <span>First Contacted:</span>
-                <input type="date"/>
+                <input type="date" name="firstContact" value={this.state.firstContact} onChange={this.changeInput}/>
             </div>
 
-            <div className="add-input" name="owner" value={this.state.owner} onChange={this.changeInput}>
+            <div className="add-input">
                 <span>Owner:</span>
-                <input type="text"/>
+                <input type="text" name="owner" value={this.state.owner} onChange={this.changeInput}/>
             </div>
 
             <button onClick={this.updateRecord}>Add New Client</button>
