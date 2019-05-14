@@ -48,7 +48,6 @@ h1 {
 }
 
 .update {
-    margin-top: 2vh;
     width: 40vw;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -65,7 +64,6 @@ h1 {
 .owner-menu, .emailType-menu, .filler {
     width: 200px;
     height: 24px;
-    margin: 1vw;
     background-color: #ecf0f1;
     border: none;
     border-bottom: 1px solid lightgrey;
@@ -94,6 +92,45 @@ h1 {
     text-align: left;
 }
 
+.add {
+    width: 40vw;
+    display: grid;
+}
+
+.add-input {
+    margin: 0.5vw;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    align-items: center;
+    justify-content: left;
+}
+
+.add-input > span {
+    width: 150px;
+    height: 18px;
+}
+
+.add-input > input {
+    width: 200px;
+    height: 18px;
+    background-color: #ecf0f1;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.add > button {
+    width: 200px;
+    height: 36px;
+    color: #0a1612;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    background-color: #F7CE3E;
+    cursor: pointer;
+    margin-left: 100px;
+}
 
 @media only screen and (max-width: 720px) {
     .update {
@@ -107,5 +144,11 @@ h1 {
     }
     .update > div > button {
         width: 20vw;
+    }
+    .add {
+        width: 75vw;
+    }
+    .add-input > input {
+        width: 30vw;
     }
 }

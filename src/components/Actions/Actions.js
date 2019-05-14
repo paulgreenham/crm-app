@@ -46,7 +46,7 @@ class Actions extends Component {
 
     async componentDidMount() {
         this.props.changePage("Actions")
-        await this.updateClients()
+        this.updateClients()
     }
 
     render(){

@@ -77,7 +77,7 @@ class Clients extends Component {
 
     async componentDidMount() {
         this.props.changePage("Clients")
-        await this.updateClientInfo()
+        this.updateClientInfo()
     }
 
     render(){

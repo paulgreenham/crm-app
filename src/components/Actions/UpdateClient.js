@@ -36,12 +36,20 @@ class UpdateClient extends Component {
         return list
     }
 
+    renderList = (list, type) => {
+        return (
+            <React.Fragment>
+                {list.map(l => <option value={l} key={l}>{l + (this.props.client[type] === l ? " (current)" : "")}</option>)}
+            </React.Fragment>
+        )
+    }
+
     renderMenu = type => {
         let list = this.sortListByType(type)
         return (
             <select className={`${type}-menu`} name={type} value={this.state[type]} onChange={this.handleInput}>
                 <option value="">{type === "owner" ? "Owner" : "Email Type"}</option>
-                {list.map(l => <option value={l} key={l}>{l + (this.props.client[type] === l ? " (current)" : "")}</option>)}
+                {this.renderList(list, type)}
             </select>
         )
     }
