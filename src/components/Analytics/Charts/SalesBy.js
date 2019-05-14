@@ -46,11 +46,30 @@ class SalesBy extends Component {
         }
     }
 
+    isMonthGreater = (a, b) => new Date(`${a.selection} 15, 2000`).getMonth() > new Date(`${b.selection} 15, 2000`).getMonth()
+
+    sortByMonth = (a, b) => this.isMonthGreater(a, b) ? 1 : -1
+
+    simpleSort = (a, b) => a.selection > b.selection ? 1 : -1
+
+    runSort = (selection, list) => {
+        if (selection === "month") {
+            return list.sort(this.sortByMonth)
+        }
+        else if (selection === "emailType") {
+            list.shift()
+            return list.sort(this.simpleSort)
+        }
+        else {
+            return list.sort(this.simpleSort)
+        }
+    }
+
     getData = selection => {
         let list = {}
         this.props.clients.filter(c => c.sold)
             .forEach(c => this.searchFilter(c, list, selection))
-        return this.getDataObjects(list)
+        return this.runSort(selection, this.getDataObjects(list))
     }
 
     renderChart = data => {
