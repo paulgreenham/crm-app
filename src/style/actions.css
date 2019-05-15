@@ -74,10 +74,10 @@ h1 {
 .sale-made {
     width: 200px;
     height: 24px;
-    margin: 1vw;
     background-color: #F7CE3E;
     color: #0a1612;
     display: grid;
+    margin-bottom: 1px;
     justify-content: center;
     align-content: center;
 }

@@ -52,13 +52,15 @@ class SalesSince extends Component {
 
     renderChart = data => {
         return (
-                <LineChart width={800} height={200} layout="horizontal" data={data}
+            <ResponsiveContainer width="95%" height="90%">
+                <LineChart layout="horizontal" data={data}
                     margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                     <XAxis dataKey="date" type="category"/>
                     <YAxis dataKey="sales" type="number"/>
                     <Line dataKey="sales" dot={false} stroke="#E74C3C" type="monotoneX" 
-                        strokeWidth={3} legendType="none" isAnimationActive={true}/>
+                        strokeWidth={3} legendType="none" isAnimationActive={true} animationDuration={1000}/>
                 </LineChart>
+            </ResponsiveContainer>
         )
     }
 

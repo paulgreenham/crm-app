@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Label } from 'recharts'
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from 'recharts'
 
 
 class SalesBy extends Component {
@@ -74,13 +74,13 @@ class SalesBy extends Component {
 
     renderChart = data => {
         return (
-            <ResponsiveContainer width='100%'>
-                <BarChart width={1200} height={200} layout="horizontal" data={data}
-                    margin={{ top: 20, right: 20, bottom: 40, left: 20 }}>
-                    <XAxis dataKey="selection" type="category"/>
+            <ResponsiveContainer width="95%" height="90%">
+                <BarChart layout="horizontal" data={data}
+                    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                    <XAxis dataKey="selection" type="category" interval={0}/>
                     <YAxis dataKey="sales" type="number"/>
                     <Bar dataKey="sales" fill="#955196" legendType="none"
-                        isAnimationActive={true} barSize = {150}/>
+                        isAnimationActive={true} animationDuration={1000}/>
                 </BarChart>
             </ResponsiveContainer>
         )

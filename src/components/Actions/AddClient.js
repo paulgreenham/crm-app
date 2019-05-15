@@ -23,7 +23,30 @@ class AddClient extends Component {
         })
     }
 
+    checkFormFilled = () => {
+        for (let key of Object.keys(this.state)) {
+            if (this.state[key] === "") {
+                return false
+            }
+        }
+        return true
+    }
+
+    clearForm = () => {
+        this.setState({
+            name: "",
+            surname: "",
+            email: "",
+            country: "",
+            firstContact: this.getReactDate(),
+            owner: ""
+        })
+    }
+
     updateRecord = async () => {
+        if (!this.checkFormFilled()) {
+            return alert("Please enter data in each field.")
+        }
         const fullName = this.state.name.concat(" ", this.state.surname)
         const newRecord = {
             name: fullName,
@@ -32,9 +55,9 @@ class AddClient extends Component {
             firstContact: new Date(this.state.firstContact),
             owner: this.state.owner
         }
-        console.log(newRecord)
         await axios.post('http://localhost:3723/clientupdate', newRecord)
         this.props.updateClients()
+        this.clearForm()
     }
 
     render(){

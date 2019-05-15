@@ -30,15 +30,17 @@ class TopEmployees extends Component {
 
     renderChart = data => {
         return (
-                <BarChart width={400} height={200} layout="vertical" data={data}
+            <ResponsiveContainer width="95%" height="90%">
+                <BarChart layout="vertical" data={data}
                     margin={{ top: 20, right: 20, bottom: 20, left: 40 }}>
                     <XAxis dataKey="sales" type="number">
                         <Label value="Sales" offset={0} position="bottom" />
                     </XAxis>
                     <YAxis dataKey="name" type="category"/>
                     <Bar dataKey="sales" fill="#003F5C" legendType="none" maxBarSize={20}
-                        isAnimationActive={true}/>
+                        isAnimationActive={true} animationDuration={1000}/>
                 </BarChart>
+            </ResponsiveContainer>
         )
     }
 

@@ -1,0 +1,47 @@
+.home-container {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.message {
+    display: grid;
+    justify-content: center;
+    align-content: flex-end;
+    padding-bottom: 2vw;
+    font-size: 2vw;
+    font-weight: bolder;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding-top: 6vw;
+}
+
+.go-to-clients, .go-to-actions, .go-to-analytics {
+    display: grid;
+    height: 12vw;
+    width: 20vw;
+    color: white;
+    justify-content: left;
+    align-content: center;
+    font-size: 2vw;
+    font-weight: bolder;
+    padding: 1vw;
+}
+
+.go-to-clients {
+    justify-self: right;
+    background-color: #F7CE3E;
+}
+
+.go-to-actions {
+    justify-self: center;
+    background-color: #0a1612;
+}
+
+.go-to-analytics {
+    justify-self: left;
+    background-color: grey;
+}

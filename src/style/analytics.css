@@ -41,7 +41,7 @@
     justify-content: center;
     align-content: center;
     color: white;
-    font-size: 4.5vw;
+    font-size: 3.5vw;
     box-shadow: 2px 2px 1px slategrey;
 }
 
@@ -60,8 +60,8 @@
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas:
-    "t b b b b"
-    "s s s c c";
+    "t t t t t b b b b b b b b b b"
+    "s s s s s s s s s c c c c c c";
     height: 60vh;
 }
 
@@ -84,4 +84,27 @@
 .chart-header {
     font-weight: bold;
     margin-left: 1vw;
+}
+
+@media only screen and (max-width: 720px) {
+    .icon {
+        height: 12vw;
+        width: 12vw;
+        font-size: 7vw;
+
+    }
+    .badge-datum {
+        font-size: 6vw;
+    }
+    .badge-data{
+        font-size: 4vw;
+    }
+    .charts {
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+        "t"
+        "b"
+        "s"
+        "c";
+    }
 }
