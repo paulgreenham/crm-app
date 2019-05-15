@@ -22,6 +22,7 @@ h1 {
     font-family: inherit;
     font-size: inherit;
     text-align: center;
+    outline: none;
 }
 
 .client-names {
@@ -69,6 +70,7 @@ h1 {
     border-bottom: 1px solid lightgrey;
     font-family: inherit;
     font-size: inherit;
+    outline: none;
 }
 
 .sale-made {
@@ -90,6 +92,7 @@ h1 {
     background-color: #ecf0f1;
     cursor: pointer;
     text-align: left;
+    outline: none;
 }
 
 .add {
@@ -118,6 +121,7 @@ h1 {
     border-bottom: 1px solid lightgrey;
     font-family: inherit;
     font-size: inherit;
+    outline: none;
 }
 
 .add > button {
@@ -130,6 +134,7 @@ h1 {
     background-color: #F7CE3E;
     cursor: pointer;
     margin-left: 100px;
+    outline: none;
 }
 
 @media only screen and (max-width: 720px) {

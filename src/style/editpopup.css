@@ -49,6 +49,7 @@
     height: 2vw;
     color: #ecf0f1;
     font-size: inherit;
+    outline: none;
 }
 
 .update-button {
@@ -60,4 +61,5 @@
     font-weight: 700;
     border-radius: 3px;
     cursor: pointer;
+    outline: none;
 }
