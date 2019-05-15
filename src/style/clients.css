@@ -38,14 +38,25 @@
     border-bottom: 2px solid lightgrey;
 }
 
-.search-bar {
-    height: 3.2vh;
+.search-filter, .search-menu, .search-bar {
+    width: 200px;
+    background-color: #ecf0f1;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    margin-left: 1vw;
 }
 
-.search-menu {
-    height: 4vh;
+.search-bar {
+    height: 20px;
 }
 
 .search-filter {
-    height: 4vh;
+    height: 24px;
+}
+
+.search-menu {
+    height: 24px;
 }

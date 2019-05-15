@@ -9,7 +9,8 @@ class Analytics extends Component {
     constructor() {
         super()
         this.state = {
-            clients: []
+            clients: [],
+            loading: true
         }
     }
 
@@ -22,14 +23,22 @@ class Analytics extends Component {
 
     async componentDidMount() {
         this.props.changePage("Analytics")
-        this.updateClientInfo()
+        await this.updateClientInfo()
+        this.setState({ loading: false })
     }
 
     render(){
-        return (<div className="analytics-container">
-            <Badges clients={this.state.clients} />
-            <Charts clients={this.state.clients}/>
-        </div>)
+        return (<React.Fragment> {this.state.loading ? 
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div> :
+            <div className="analytics-container">
+                <Badges clients={this.state.clients} />
+                <Charts clients={this.state.clients}/>
+            </div>}
+        </React.Fragment>)
     }
 }
 

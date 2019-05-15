@@ -11,7 +11,8 @@ class Actions extends Component {
         super()
         this.state = {
             clients: [],
-            currentClient: {}
+            currentClient: {},
+            loading: true
         }
     }
 
@@ -46,22 +47,30 @@ class Actions extends Component {
 
     async componentDidMount() {
         this.props.changePage("Actions")
-        this.updateClients()
+        await this.updateClients()
+        this.setState({ loading: false })
     }
 
     render(){
-        return (<div className="actions-container">
-            <div className="update-client">
-                <h1>UPDATE</h1>
-                <SearchClients clients={this.state.clients} getCurrentClient={this.getCurrentClient}/>
-                <UpdateClient updateClient={this.updateClient} client={this.state.currentClient}
-                    owners={this.getList("owner")} emails={this.getList("emailType")}/>
-            </div>
-            <div className="add-client">
-                <h1>ADD CLIENT</h1>
-                <AddClient updateClients={this.updateClients} />
-            </div>
-        </div>)
+        return (<React.Fragment> {this.state.loading ? 
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div> :
+            <div className="actions-container">
+                <div className="update-client">
+                    <h1>UPDATE</h1>
+                    <SearchClients clients={this.state.clients} getCurrentClient={this.getCurrentClient}/>
+                    <UpdateClient updateClient={this.updateClient} client={this.state.currentClient}
+                        owners={this.getList("owner")} emails={this.getList("emailType")}/>
+                </div>
+                <div className="add-client">
+                    <h1>ADD CLIENT</h1>
+                    <AddClient updateClients={this.updateClients} />
+                </div>
+            </div>}
+        </React.Fragment>)
     }
 }
 

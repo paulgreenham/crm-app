@@ -25,7 +25,7 @@ class SalesBy extends Component {
         </select>)
     }
 
-    getFullMonth = (date = new Date()) => new Intl.DateTimeFormat('en-US', {month: "long"}).format(date)
+    getMonth = (date = new Date()) => new Date(date).toDateString().slice(4, 7)
 
     getDataObject = (l, list) => {
         return {
@@ -38,7 +38,7 @@ class SalesBy extends Component {
 
     searchFilter = (c, list, selection) => {
         if (selection === "month") {
-            let month = this.getFullMonth(new Date(c.firstContact))
+            let month = this.getMonth(new Date(c.firstContact))
             return list[month] ? list[month] += 1 : list[month] = 1
         }
         else {

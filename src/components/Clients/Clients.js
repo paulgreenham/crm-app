@@ -14,7 +14,8 @@ class Clients extends Component {
             startIndex: 0,
             endIndex: 19,
             searchObject: "",
-            searchCategory: "name"
+            searchCategory: "name",
+            loading: true
         }
     }
 
@@ -77,18 +78,26 @@ class Clients extends Component {
 
     async componentDidMount() {
         this.props.changePage("Clients")
-        this.updateClientInfo()
+        await this.updateClientInfo()
+        this.setState({ loading: false })
     }
 
     render(){
-        return (<div className="clients-container">
-            <div className="main-header">
-                <SearchBar updateSearch={this.updateSearch}/>
-                <Pagination resetIndex={this.resetIndex} resetEnd={this.resetEnd} start={this.state.startIndex} end={this.getSearchedClients().length}/>
-            </div>
-            {this.renderHeader()}
-            {this.renderClients()}
-        </div>)
+        return (<React.Fragment> {this.state.loading ? 
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div> :
+            <div className="clients-container">
+                <div className="main-header">
+                    <SearchBar updateSearch={this.updateSearch}/>
+                    <Pagination resetIndex={this.resetIndex} resetEnd={this.resetEnd} start={this.state.startIndex} end={this.getSearchedClients().length}/>
+                </div>
+                {this.renderHeader()}
+                {this.renderClients()}
+            </div>}
+        </React.Fragment>)
     }
 }
 
