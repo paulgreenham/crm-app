@@ -65,7 +65,7 @@ class ClientAcquisition extends Component {
     renderChart = data => {
         return (
             <ResponsiveContainer width="95%" height="90%">
-                <PieChart margin={{top: 10, right: 5, bottom: 5, left: 5 }}>
+                <PieChart margin={{top: 20, right: 20, bottom: 20, left: 20 }}>
                     <Pie data={data} dataKey="sales" nameKey="period" outerRadius={80} fill="#82ca9d"
                         isAnimationActive={true} label={this.getCustomLabels}>
                         {data.map((entry, index) => <Cell key={`cell-${index}`} fill={this.colors[index]}/>)}
