@@ -40,7 +40,7 @@ class EditPopUp extends Component {
             name: fullName,
             country: this.state.country
         }
-        const record = await axios.put('http://localhost:3723/clientupdate', newRecord)
+        const record = await axios.put('/clientupdate', newRecord)
         this.props.updateRecord(record.data)
         this.closePopUp()
     }

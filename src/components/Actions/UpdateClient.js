@@ -26,7 +26,7 @@ class UpdateClient extends Component {
             _id: this.props.client._id,
             [key]: key === "sold" ? true : this.state[key]
         }
-        let record = await axios.put(`http://localhost:3723/clientupdate/${key}`, changeObject)
+        let record = await axios.put(`/clientupdate/${key}`, changeObject)
         this.props.updateClient(key, record.data[key])
     }
 

@@ -55,7 +55,7 @@ class AddClient extends Component {
             firstContact: new Date(this.state.firstContact),
             owner: this.state.owner
         }
-        await axios.post('http://localhost:3723/clientupdate', newRecord)
+        await axios.post('/clientupdate', newRecord)
         this.props.updateClients()
         this.clearForm()
     }

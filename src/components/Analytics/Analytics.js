@@ -15,7 +15,7 @@ class Analytics extends Component {
     }
 
     updateClientInfo = async () => {
-        let dbclients = await axios.get('http://localhost:3723/clientdata')
+        let dbclients = await axios.get('/clientdata')
         this.setState({
             clients: dbclients.data
         })
