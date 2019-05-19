@@ -57,7 +57,7 @@ class SalesBy extends Component {
             return list.sort(this.sortByMonth)
         }
         else if (selection === "emailType") {
-            list.shift()
+            // list.shift()
             return list.sort(this.simpleSort)
         }
         else {
