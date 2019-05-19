@@ -57,7 +57,8 @@ class SalesBy extends Component {
             return list.sort(this.sortByMonth)
         }
         else if (selection === "emailType") {
-            // list.shift()
+            let nullIndex = list.find(l => l === null) ? list.findIndex(l => l === null) : -1
+            if (nullIndex >= 0) {list.splice(nullIndex, 1)}
             return list.sort(this.simpleSort)
         }
         else {

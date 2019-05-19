@@ -53,7 +53,6 @@ class Actions extends Component {
     }
 
     render(){
-        const emailTypes = this.getList("emailType")
         return (<React.Fragment> {this.state.loading ? 
             <div className="spinner">
                 <div className="bounce1"></div>
@@ -65,7 +64,7 @@ class Actions extends Component {
                     <h1>UPDATE</h1>
                     <SearchClients clients={this.state.clients} getCurrentClient={this.getCurrentClient}/>
                     <UpdateClient updateClient={this.updateClient} client={this.state.currentClient}
-                        owners={this.getList("owner")} emails={emailTypes.length > 0 ? emailTypes : this.state.emailList}/>
+                        owners={this.getList("owner")} emails={this.state.emailList}/>
                 </div>
                 <div className="add-client">
                     <h1>ADD CLIENT</h1>
