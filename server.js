@@ -5,7 +5,7 @@ const api = require('./server/routes/api')
 
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/crmDB', {useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/crmDB', {useNewUrlParser: true})
 
 
 const app = express()
@@ -18,6 +18,4 @@ app.use('/', api)
 
 
 const port = 3000
-app.listen(port, function () {
-    console.log(`Server running on port ${port}`)
-})
+app.listen(process.env.PORT || port)
