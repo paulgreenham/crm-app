@@ -8,8 +8,9 @@
     justify-content: center;
     align-content: flex-end;
     padding-bottom: 2vw;
-    font-size: 2vw;
+    font-size: 36px;
     font-weight: bolder;
+    text-align: center;
 }
 
 .options {
@@ -21,12 +22,12 @@
 
 .go-to-clients, .go-to-actions, .go-to-analytics {
     display: grid;
-    height: 12vw;
-    width: 20vw;
+    height: 200px;
+    width: 320px;
     color: white;
     justify-content: left;
     align-content: center;
-    font-size: 2vw;
+    font-size: 36px;
     font-weight: bolder;
     padding: 1vw;
 }
@@ -44,4 +45,24 @@
 .go-to-analytics {
     justify-self: left;
     background-color: grey;
+}
+
+@media only screen and (max-width: 1000px) {
+    .options {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        padding-top: 1vw;
+    }
+    .home-container {
+        grid-template-rows: 1fr;
+    }
+    .go-to-clients, .go-to-actions, .go-to-analytics {
+        height: 150px;
+        width: 240px;
+        font-size: 24px;
+    }
+    .message {
+        font-size: 24px;
+        align-content: center;
+    }
 }

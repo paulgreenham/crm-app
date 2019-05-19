@@ -20,7 +20,7 @@
     font-weight: bold;
     box-shadow: 2px 2px 1px slategrey;
     border-radius: 2px;
-    height: 5vh;
+    height: 36px;
     padding: 0.5vw;
 }
 
@@ -32,7 +32,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     align-content: center;
-    height: 5vh;
+    height: 36px;
     margin-left: 0.5vw;
     margin-bottom: 2vh;
     border-bottom: 2px solid lightgrey;

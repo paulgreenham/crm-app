@@ -144,7 +144,7 @@ h1 {
     .client-search {
         width: 40vw;
     }
-    .owner-menu, .emailType-menu, .sale-made {
+    .owner-menu, .emailType-menu, .sale-made, .filler {
         width: 30vw;
     }
     .update > div > button {

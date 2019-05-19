@@ -8,32 +8,35 @@
     margin: 1vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    height: 15vh;
+    height: 20vh;
 }
 
-.new-clients {
+#new-clients {
     background-color: #2ECC71;
 }
 
-.emails-sent {
+#emails-sent {
     background-color: #3498DB;
 }
 
-.outstanding-clients {
+#outstanding-clients {
     background-color: #E74C3C;
 }
 
-.hot-country {
+#hot-country {
     background-color: #F1C40F;
 }
 
 .badge {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "i d"
+    "i ds";
     padding-right: 7vw;
 }
 
 .icon {
+    grid-area: i;
     border-radius: 50%;
     height: 6vw;
     width: 6vw;
@@ -43,17 +46,21 @@
     color: white;
     font-size: 3.5vw;
     box-shadow: 2px 2px 1px slategrey;
+    margin-right: 1vw;
 }
 
 .badge-data {
+    grid-area: d;
     background-color: #ecf0f1;
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
     font-weight: bold;
+    font-size: 3vw;
 }
 
-.badge-datum {
-    font-size: 3vw;
+.badge-description {
+    grid-area: ds;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .charts {
@@ -88,16 +95,21 @@
 
 @media only screen and (max-width: 720px) {
     .icon {
-        height: 12vw;
-        width: 12vw;
-        font-size: 7vw;
+        height: 40px;
+        width: 40px;
+        font-size: 22px;
 
     }
-    .badge-datum {
-        font-size: 6vw;
+    .badge {
+        padding-right: 1vw;
+        grid-template-rows: repeat(2, 1fr);
     }
     .badge-data{
-        font-size: 4vw;
+        font-size: 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .badge-description {
+        font-size: 10px;
     }
     .charts {
         grid-template-rows: repeat(4, 1fr);
@@ -106,5 +118,8 @@
         "b"
         "s"
         "c";
+    }
+    #top-employees, #sales-by, #sales-since, #client-acquisition {
+        height: 250px;
     }
 }
